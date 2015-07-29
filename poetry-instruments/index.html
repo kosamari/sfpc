@@ -25,32 +25,25 @@
 </div>
 
 <script>
-  var keys = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n']
   var api_link = 'http://api.giphy.com/v1/gifs/search?q=sarcasm&api_key=dc6zaTOxFJmzC';
   var data;
   var state = false;
+
   function random(){
     return Math.floor(Math.random() * data.length)
   }
 
-  $.get(api_link, function(res){
-    var i;
-    data = res.data.map(function(d){return d.images.original.url});
-    state = true;
-  })
-
-  $(window).on('click', function(){
-    showImage();
-    if(state){
-      changegGif();
-    }else{
-      console.log('data not ready')
-    }
-  })
   function showImage(){
     if(!$('#image').is(":visible")){
       $('#tweet').hide()
       $('#image').show()
+    }
+  }
+
+  function showTweet(){
+    if(!$('#tweet').is(":visible")){
+      $('#tweet').show()
+      $('#image').hide()
     }
   }
 
@@ -63,6 +56,24 @@
     }
   }
 
+  // data fetch
+  $.get(api_link, function(res){
+    var i;
+    data = res.data.map(function(d){return d.images.original.url});
+    state = true;
+  })
+
+  // click binding
+  $(window).on('click', function(){
+    if(state){
+      showImage();
+      changegGif();
+    }else{
+      console.log('data not ready')
+    }
+  })
+
+  // key bindings
   Mousetrap.bind('q', function(e) {
     if(state){
       showImage();
@@ -214,10 +225,7 @@
     }
   });
   Mousetrap.bind("m", function(){
-    if(!$('#tweet').is(":visible")){
-      $('#tweet').show()
-      $('#image').hide()
-    }
+    showTweet()
   })
 </script>
 </body>
