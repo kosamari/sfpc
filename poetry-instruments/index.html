@@ -1,0 +1,224 @@
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://craig.global.ssl.fastly.net/js/mousetrap/mousetrap.min.js"></script>
+<style>
+  #container{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+  h1{
+    font-family: monospace;
+  }
+</style>
+</head>
+<body>
+<div id="container">
+  <h1>&lt;sarcasm&gt;</h1>
+  <div id="tweet">
+    <blockquote class="twitter-tweet  tw-align-center" lang="en"><p lang="en" dir="ltr">I&#39;m waiting for &lt;sarcasm&gt;&lt;/sarcasm&gt; tag to be included in HTML spec. The web will be *much* more semantic that way.</p>&mdash; Mariko Kosaka (@kosamari) <a href="https://twitter.com/kosamari/status/625712949429202948">July 27, 2015</a></blockquote>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </div>
+  <div id="image" hidden></div>
+  <h1>&lt;/sarcasm&gt;</h1>
+</div>
+
+<script>
+  var keys = ['q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n']
+  var api_link = 'http://api.giphy.com/v1/gifs/search?q=sarcasm&api_key=dc6zaTOxFJmzC';
+  var data;
+  var state = false;
+  function random(){
+    return Math.floor(Math.random() * data.length)
+  }
+
+  $.get(api_link, function(res){
+    var i;
+    data = res.data.map(function(d){return d.images.original.url});
+    state = true;
+  })
+
+  $(window).on('click', function(){
+    showImage();
+    if(state){
+      changegGif();
+    }else{
+      console.log('data not ready')
+    }
+  })
+  function showImage(){
+    if(!$('#image').is(":visible")){
+      $('#tweet').hide()
+      $('#image').show()
+    }
+  }
+
+  function changegGif(image){
+    var index = random();
+    if(image){
+      $('#image').html('<img src="'+image+'" height="400px">')
+    }else{
+      $('#image').html('<img src="'+data[index]+'" height="400px">')
+    }
+  }
+
+  Mousetrap.bind('q', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[0]);
+    }
+  });
+  Mousetrap.bind('w', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[1]);
+    }
+  });
+  Mousetrap.bind('e', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[2]);
+    }
+  });
+  Mousetrap.bind('r', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[3]);
+    }
+  });
+  Mousetrap.bind('t', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[4]);
+    }
+  });
+  Mousetrap.bind('y', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[5]);
+    }
+  });
+  Mousetrap.bind('u', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[6]);
+    }
+  });
+  Mousetrap.bind('i', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[7]);
+    }
+  });
+  Mousetrap.bind('o', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[8]);
+    }
+  });
+  Mousetrap.bind('p', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[9]);
+    }
+  });
+  Mousetrap.bind('a', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[10]);
+    }
+  });
+  Mousetrap.bind('s', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[11]);
+    }
+  });
+  Mousetrap.bind('d', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[12]);
+    }
+  });
+  Mousetrap.bind('f', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[13]);
+    }
+  });
+  Mousetrap.bind('g', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[14]);
+    }
+  });
+  Mousetrap.bind('h', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[15]);
+    }
+  });
+  Mousetrap.bind('j', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[16]);
+    }
+  });
+  Mousetrap.bind('k', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[17]);
+    }
+  });
+  Mousetrap.bind('l', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[18]);
+    }
+  });
+  Mousetrap.bind('z', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[19]);
+    }
+  });
+  Mousetrap.bind('x', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[20]);
+    }
+  });
+  Mousetrap.bind('c', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[21]);
+    }
+  });
+  Mousetrap.bind('v', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[22]);
+    }
+  });
+  Mousetrap.bind('b', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[23]);
+    }
+  });
+  Mousetrap.bind('n', function(e) {
+    if(state){
+      showImage();
+      changegGif(data[24]);
+    }
+  });
+  Mousetrap.bind("m", function(){
+    if(!$('#tweet').is(":visible")){
+      $('#tweet').show()
+      $('#image').hide()
+    }
+  })
+</script>
+</body>
+</html>
