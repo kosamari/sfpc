@@ -1,0 +1,168 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<!--
+Hexes
+copyright (c) 2015 Nick Montfort <nickm@nickm.com>
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
+SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR
+IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+Based on a project by Sonny Rae Tempest,
+from a collaboration with Christopher T. Funkhouser.-->
+<style type="text/css">
+/* <![CDATA[ */
+body {
+ background:#000;
+ color:#ccc;
+ font-family:Optima, sans-serif;
+}
+a {
+ color:#117;
+ text-decoration:none;
+}
+#main {
+ margin:30% 0 0 0;
+ text-align: center;
+ font-size: 96pt;
+ font-weight: bold;
+}
+/* ]]> */
+</style>
+<script type="text/javascript">
+
+var t = 0,
+words =['d3fac3',
+ '633',
+ 'b3d073',
+ '537733',
+ '3c351c',
+ '63573d',
+ 'd3ba73',
+ 'd3cad3',
+ 'b3773d',
+ '53ab33',
+ 'd3ca73',
+ '53c3d3',
+ '6adb33',
+ '73a73d',
+ '53ba73',
+ '70ff33',
+ 'c0ff33',
+ 'd3c355',
+ '36357a',
+ 'd3c1d3',
+ '63bb13',
+ '3a7a63',
+ 'f3223d',
+ 'd35123',
+ 'fac373',
+ '733',
+ '533',
+ '53663d',
+ 'b3a733',
+ 'acc3d3',
+ '3ff373',
+ '636633',
+ '1d3a73',
+ '3c3515',
+ '305a73',
+ 'b00733',
+ '533d3d',
+ 'c0a733',
+ '60a733',
+ 'd3b733',
+ 'd37357',
+ '1d3a3d',
+ '517733',
+ '73bb37',
+ 'b3d3af',
+ 'd3f3a7',
+ '53d63d',
+ 'd3c317',
+ '3f7357',
+ '703703',
+ '537053',
+ '231da3',
+ '61d633',
+ 'd3ba53',
+ 'd3c0d3',
+ 'd3bb13',
+ '3ffac3',
+ '735735',
+ '735733',
+ '73573d',
+ 'c33',
+ '6037a3',
+ '53a73d',
+ 'b33',
+ 'd3533d',
+ '53da73',
+ 'd33',
+ '3051d3',
+ '357a73',
+ 'b3b173',
+ '533533',
+ 'd3f3c7',
+ 'b36a23',
+ 'b371d3',
+ 'b35513',
+ 'b3dd3d',
+ '753753',
+ 'b3a7a3',
+ 'b351d3',
+ 'd3663d',
+ '360123',
+ 'b3da23',
+ 'b3d3b7',
+ '535737',
+ '0b53d3',
+ 'b3d3ad',
+ '3ff3c7',
+ 'd373c7',
+ '233',
+ 'f33',
+ 'b3ad3d'];
+
+function rand_range(maximum) {
+    "use strict";
+    return Math.floor(Math.random() * (maximum + 1));
+}
+function choose(array) {
+    "use strict";
+    return array[rand_range(array.length - 1)];
+}
+function litany() {
+    "use strict";
+    var last, text, main = document.getElementById('main'),
+    selection = choose(words);
+    main.innerHTML = '<span style="color: #' + selection + '">' + selection + '</span>';
+}
+function produce_litany() {
+    "use strict";
+    litany();
+    setInterval(litany, 5000);
+}
+
+</script>
+  <title>Hexes</title>
+</head>
+
+<body onload="produce_litany();">
+<div id="main">
+    <div>hi</div>
+</div>
+</body>
+</html>
