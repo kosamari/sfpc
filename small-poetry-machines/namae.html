@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Upstart</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="poem, generator" />
+  <meta name="date" content="2013-10-09" />
+  <style type="text/css">
+    a {text-decoration:none;color:black;}
+    .year{
+      font-size: 60px;
+      cursor: pointer;
+      padding:10px;
+    }
+    .name{
+      height:55px;
+    }
+    .selected{
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body style="font-family: Helvetica, 'Nimbus Sans L', 'Liberation Sans', Arial, sans-serif; background:white; color:black; padding:14px 28px 0 28px">
+
+<div style="width:628px; font-size:46px; margin-left:auto; margin-right:auto; text-align:center;height:400px">
+  <span onclick='setarray(names1, "one")' class="year" id="one">1949</span>
+  <span onclick='setarray(names2, "two")' class="year selected" id="two">2015</span>
+  <div class="name"><span>1. </span><span id="dotcom1"></span></div>
+  <div class="name"><span>2. </span><span id="dotcom2"></span></div>
+  <div class="name"><span>3. </span><span id="dotcom3"></span></div>
+  <div class="name"><span>4. </span><span id="dotcom4"></span></div>
+  <div class="name"><span>5. </span><span id="dotcom5"></span></div>
+  <div class="name"><span>6. </span><span id="dotcom6"></span></div>
+</div>
+<div style="text-align:center; font-size:15px; padding: 14px 0 28px 0;">Forked from <b style="font-size:20px"><a href="http://nickm.com/poems/upstart.html">Upstart</a></b> By <a href="http://nickm.com">Nick Montfort.</a></div>
+<script type="text/javascript">
+var names1 = [
+  ['幸','子'],
+  ['和','子'],
+  ['洋','子'],
+  ['節','子'],
+  ['恵','子'],
+  ['悦','子'],
+];
+var names2 = [
+  ['陽','菜'],
+  ['結','菜'],
+  ['結','愛'],
+  ['愛','莉'],
+  ['美','咲'],
+  ['結','衣'],
+];
+var panel = 1;
+var fonts = ['serif','sans-serif'];
+var currentArray = names2;
+var color = ['#EF6975','#F0DB4F']
+function rand_index(len) {
+  return Math.floor(Math.random() * len);
+}
+
+function setarray(array, index){
+  currentArray = array;
+  if(index==='one'){
+    var d1 = document.getElementById('one');
+    d1.className = d1.className + " selected";
+    var d2 = document.getElementById('two');
+    d2.className = d2.className.replace(' selected','');
+  }else{
+    var d1 = document.getElementById('two');
+    d1.className = d1.className + " selected";
+    var d2 = document.getElementById('one');
+    d2.className = d2.className.replace(' selected','');
+  }
+}
+function update(names) {
+  var body = document.body;
+  body.style.backgroundColor = color[panel%2]
+  var dotcomdiv = document.getElementById('dotcom' + panel);
+  var first = rand_index(names.length);
+  var second = rand_index(names.length - 1);
+
+  dotcomdiv.innerHTML = names[first][0] + names[second][1];
+
+  panel++;
+  if (panel > 6) { panel = 1; }
+
+  dotcomdiv.style.fontFamily = fonts[rand_index(fonts.length)];
+}
+
+update(currentArray);
+setInterval(function(){update(currentArray)}, 700);
+</script>
+</body>
+</html>
